@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jeopardy Game</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash/lodash.min.js"></script>
+</head>
+<body>
+
+  <h1>Jeopardy!</h1>
+  <button id="restart">Restart Game</button>
+
+  <div id="loading" style="display:none;">
+    <div class="spinner"></div>
+    <div>Loading Jeopardy Board...</div>
+  </div>
+
+  <div id="instructions" style="display:none;">
+    <p>Click a box to reveal the question, then click again to see the answer.</p>
+    <p>Use the "Restart Game" button to load new questions anytime.</p>
+  </div>
+
+  <div id="error" role="alert" aria-live="assertive" style="color: red; display:none;"></div>
+
+  <table id="jeopardy" style="display:none;" role="grid" aria-label="Jeopardy game board">
+    <thead></thead>
+    <tbody></tbody>
+  </table>
+
+  <div id="aria-announcer" role="status" aria-live="polite" style="position:absolute; left:-9999px; height:1px; width:1px; overflow:hidden;"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,126 @@
+/* Basic styling */
+body {
+  font-family: sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f2f5;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 20px auto;
+  font-size: 16px;
+  cursor: pointer;
+  display: block;
+  border: none;
+  background-color: #0b5ed7;
+  color: white;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+/* Spinner styles */
+.spinner {
+  margin: 0 auto 10px auto;
+  width: 40px;
+  height: 40px;
+  border: 5px solid #ccc; /* Light grey */
+  border-top: 5px solid #0b5ed7; /* Blue */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Jeopardy Table */
+table {
+  margin: 10px auto;
+  border-collapse: collapse;
+  width: 95%;
+  max-width: 800px;
+}
+
+th, td {
+  border: 2px solid #333;
+  padding: 10px;
+  height: 60px;
+  background-color: #0b5ed7;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  word-wrap: break-word;
+  user-select: none; /* Prevent text selection on click */
+}
+
+td:hover:not([data-disabled="true"]) {
+  background-color: #084298;
+}
+
+/* Responsive layout for small screens */
+@media (max-width: 600px) {
+  th, td {
+    font-size: 0.8rem;
+    padding: 6px;
+    height: 50px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  button:focus,
+  th:focus,
+  td:focus {
+    outline: 3px solid #ffc107; /* bright yellow outline for visibility */
+    outline-offset: 2px;
+    background-color: #084298; /* match hover background for consistency */
+    color: white;
+  }
+
+  th, td {
+    max-height: 100px; /* max height to prevent very tall cells */
+    overflow-y: auto;  /* vertical scrollbar if content exceeds max-height */
+  }
+}
+
+/* Loading & Instructions styles */
+#loading {
+  font-size: 1.2rem;
+  margin: 20px 0;
+  color: #0b5ed7;
+  font-weight: bold;
+}
+
+#instructions {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* Initially hide loading, instructions, and jeopardy board */
+#loading,
+#instructions,
+#jeopardy {
+  display: none;
+}
